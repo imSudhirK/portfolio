@@ -2,42 +2,60 @@
 interface Role {
 	title: string;
 	company: string;
+	companyUrl?: string;
+	location: string;
 	period: string;
-	description: string;
+	highlights: string[];
 }
 
 const roles: Role[] = [
 	{
-		title: 'Job Title',
-		company: 'Company Name',
-		period: '20XX — Present',
-		description: 'One or two lines about your responsibilities and impact in this role.',
+		title: 'Software Developer',
+		company: 'Credflow',
+		location: 'Noida, UP',
+		period: 'Nov 2022 — Present',
+		highlights: [
+			'Built scalable systems for pre-approved limit calculation, credit analysis, and loan advisory.',
+			'Developed a Loan Origination System panel for Relationship Managers with role-based workflows.',
+			'Migrated a single-tenant system to multi-tenant architecture with isolated databases.',
+			'Contributed to an AI-driven underwriting platform using Kafka for real-time analytics.',
+			'Engineered end-to-end recurring payment workflows integrating Razorpay with webhooks and cron-based reconciliation.',
+		],
 	},
 	{
-		title: 'Previous Job Title',
-		company: 'Previous Company',
-		period: '20XX — 20XX',
-		description: 'One or two lines about your responsibilities and impact in this role.',
+		title: 'Technical Executive',
+		company: 'Menon and Menon Ltd',
+		location: 'Kolhapur, Maharashtra',
+		period: 'Jul 2022 — Nov 2022',
+		highlights: [
+			'Built a healthcare WhatsApp bot using Python and Gupshup APIs for automated diet-plan and deal notifications.',
+			'Collaborated on a full-stack e-commerce platform using Node.js and React.js, optimizing APIs and UX.',
+		],
 	},
 ];
 ---
 
 <section id="experience" class="experience">
-	<h2>Experience</h2>
-	<p class="hint">Edit this list in src/components/Experience.astro.</p>
-	<div class="timeline">
-		{
-			roles.map((role) => (
-				<div class="role">
-					<div class="role-header">
-						<h3>{role.title}</h3>
-						<span class="period">{role.period}</span>
+	<div class="inner">
+		<h2 class="section-heading"><span class="index">04.</span> Experience</h2>
+		<div class="timeline">
+			{
+				roles.map((role) => (
+					<div class="role">
+						<div class="role-header">
+							<h3>
+								{role.title} <span class="at">@ {role.company}</span>
+							</h3>
+							<span class="period">{role.period}</span>
+						</div>
+						<p class="location">{role.location}</p>
+						<ul>
+							{role.highlights.map((h) => <li>{h}</li>)}
+						</ul>
 					</div>
-					<p class="company">{role.company}</p>
-					<p>{role.description}</p>
-				</div>
-			))
-		}
+				))
+			}
+		</div>
 	</div>
 </section>
 
@@ -49,22 +67,20 @@ const roles: Role[] = [
 		border-bottom: 1px solid var(--border);
 	}
 
-	.experience > * {
+	.inner {
 		max-width: var(--max-width);
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.hint {
-		color: var(--text-muted);
-		font-size: 0.9rem;
+		margin: 0 auto;
 	}
 
 	.timeline {
 		display: flex;
 		flex-direction: column;
-		gap: 1.75rem;
-		margin-top: 1.5rem;
+		gap: 2.5rem;
+	}
+
+	.role {
+		border-left: 2px solid var(--border);
+		padding-left: 1.25rem;
 	}
 
 	.role-header {
@@ -77,21 +93,43 @@ const roles: Role[] = [
 
 	.role-header h3 {
 		margin: 0;
+		font-size: 1.05rem;
+		color: var(--text);
+	}
+
+	.at {
+		color: var(--accent);
+		font-weight: 400;
 	}
 
 	.period {
+		font-family: var(--mono);
 		color: var(--text-muted);
-		font-size: 0.85rem;
+		font-size: 0.8rem;
+		white-space: nowrap;
 	}
 
-	.company {
-		color: var(--accent);
-		font-weight: 500;
-		margin: 0.15rem 0 0.5rem;
+	.location {
+		color: var(--text-muted);
+		font-family: var(--mono);
+		font-size: 0.8rem;
+		margin: 0.2rem 0 0.9rem;
 	}
 
-	.role p:last-child {
+	ul {
 		margin: 0;
+		padding-left: 1.1rem;
 		color: var(--text-muted);
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	li {
+		font-size: 0.92rem;
+	}
+
+	li::marker {
+		color: var(--accent);
 	}
 </style>

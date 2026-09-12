@@ -1,13 +1,16 @@
 ---
 const paragraphs = [
-	'Replace this paragraph in src/components/About.astro with a couple of sentences about your background, what you work on, and what you care about as a developer.',
-	'Add a second paragraph here if you want to mention specific interests, domains, or what you are currently learning.',
+	`I'm a Software Developer with 3+ years of experience building scalable full-stack systems in fintech and SaaS at Credflow, working across microservices, AI-driven platforms, and high-throughput customer-facing products.`,
+	`My core stack is Node.js, React, Next.js, TypeScript, MongoDB, PostgreSQL, and Redis, with hands-on experience in Kafka, Docker, and AWS for building event-driven and distributed systems.`,
+	`I hold a B.Tech in Computer Science & Engineering from IIT Bombay. I enjoy backend engineering, system design, and turning messy real-world financial workflows into simple, reliable software.`,
 ];
 ---
 
 <section id="about" class="about">
-	<h2>About</h2>
-	{paragraphs.map((p) => <p>{p}</p>)}
+	<div class="inner">
+		<h2 class="section-heading"><span class="index">01.</span> About</h2>
+		{paragraphs.map((p) => <p>{p}</p>)}
+	</div>
 </section>
 
 <style>
@@ -18,14 +21,13 @@ const paragraphs = [
 		border-bottom: 1px solid var(--border);
 	}
 
-	.about > * {
+	.inner {
 		max-width: var(--max-width);
-		margin-left: auto;
-		margin-right: auto;
+		margin: 0 auto;
 	}
 
 	p {
 		color: var(--text-muted);
-		max-width: 65ch;
+		max-width: 68ch;
 	}
 </style>

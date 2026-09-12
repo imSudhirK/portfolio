@@ -1,43 +1,53 @@
 ---
 const skills = [
-	'JavaScript',
-	'TypeScript',
-	'React',
 	'Node.js',
-	'HTML & CSS',
-	'Git',
+	'React.js',
+	'Next.js',
+	'TypeScript',
+	'JavaScript',
+	'Python',
+	'MongoDB',
+	'PostgreSQL',
+	'Redis',
 	'SQL',
-	'Astro',
+	'Kafka',
+	'Docker',
+	'AWS',
+	'Git',
+	'C++',
+	'Bash',
 ];
 ---
 
 <section id="skills" class="skills">
-	<h2>Skills</h2>
-	<p class="hint">Edit this list in src/components/Skills.astro.</p>
-	<ul>
-		{skills.map((skill) => <li>{skill}</li>)}
-	</ul>
+	<h2 class="section-heading"><span class="index">02.</span> Skills</h2>
+	<pre class="code-block"><code><span class="kw">const</span> <span class="var">skills</span> = [
+{skills.map((skill) => `  "${skill}",\n`).join('')}];</code></pre>
 </section>
 
 <style>
-	.hint {
-		color: var(--text-muted);
-		font-size: 0.9rem;
-	}
-
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 1rem 0 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.6rem;
-	}
-
-	li {
+	.code-block {
+		background: var(--bg-card);
 		border: 1px solid var(--border);
-		border-radius: 999px;
-		padding: 0.4rem 0.9rem;
+		border-radius: 8px;
+		padding: 1.5rem 1.75rem;
+		overflow-x: auto;
+		font-family: var(--mono);
 		font-size: 0.9rem;
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	.kw {
+		color: #c792ea;
+	}
+
+	.var {
+		color: #82aaff;
+	}
+
+	code {
+		color: #c3e88d;
+		white-space: pre;
 	}
 </style>

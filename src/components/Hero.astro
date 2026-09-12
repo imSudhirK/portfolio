@@ -1,70 +1,164 @@
 ---
 const name = 'Sudhir Kumar';
 const tagline = 'Software Developer';
+const location = 'Bengaluru, India';
 const summary =
-	'I build web applications and enjoy working across the stack. Edit this line in src/components/Hero.astro with your own intro.';
+	'3+ years building scalable full-stack systems in fintech and SaaS — from AI-driven underwriting platforms to high-throughput customer portals. B.Tech, Computer Science & Engineering, IIT Bombay.';
 ---
 
 <section id="hero" class="hero">
-	<p class="eyebrow">Hi, I'm</p>
-	<h1>{name}</h1>
-	<h2>{tagline}</h2>
-	<p class="summary">{summary}</p>
+	<div class="terminal">
+		<div class="terminal-bar">
+			<span class="dot red"></span>
+			<span class="dot yellow"></span>
+			<span class="dot green"></span>
+			<span class="terminal-title">sudhir@portfolio:~</span>
+		</div>
+		<div class="terminal-body">
+			<p class="line"><span class="prompt">$</span> whoami</p>
+			<h1>{name}</h1>
+			<p class="line"><span class="prompt">$</span> role --current</p>
+			<h2>&gt; {tagline} <span class="cursor">_</span></h2>
+			<p class="line"><span class="prompt">$</span> cat summary.txt</p>
+			<p class="summary">{summary}</p>
+			<p class="line location"><span class="prompt">$</span> location --show → {location}</p>
+		</div>
+	</div>
 	<div class="links">
-		<a href="#projects">View Projects</a>
-		<a href="#contact">Contact</a>
+		<a class="btn primary" href="#projects">View Projects</a>
+		<a class="btn" href="#contact">Get In Touch</a>
 	</div>
 </section>
 
 <style>
 	.hero {
-		padding-top: 5rem;
+		padding-top: 3.5rem;
 		padding-bottom: 3rem;
 	}
 
-	.eyebrow {
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		font-size: 0.85rem;
+	.terminal {
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		background: var(--bg-card);
+		overflow: hidden;
+		box-shadow: 0 20px 60px -20px rgba(100, 255, 218, 0.08);
+	}
+
+	.terminal-bar {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1rem;
+		background: var(--bg-alt);
+		border-bottom: 1px solid var(--border);
+	}
+
+	.dot {
+		width: 11px;
+		height: 11px;
+		border-radius: 50%;
+		display: inline-block;
+	}
+
+	.dot.red {
+		background: #ff5f56;
+	}
+
+	.dot.yellow {
+		background: #ffbd2e;
+	}
+
+	.dot.green {
+		background: #27c93f;
+	}
+
+	.terminal-title {
+		margin-left: 0.75rem;
+		font-family: var(--mono);
+		font-size: 0.8rem;
 		color: var(--text-muted);
-		margin: 0 0 0.5rem;
+	}
+
+	.terminal-body {
+		padding: 1.75rem 1.75rem 2rem;
+	}
+
+	.line {
+		font-family: var(--mono);
+		font-size: 0.9rem;
+		color: var(--text-muted);
+		margin: 1.25rem 0 0.4rem;
+	}
+
+	.line:first-child {
+		margin-top: 0;
+	}
+
+	.prompt {
+		color: var(--accent);
+		margin-right: 0.5rem;
 	}
 
 	h1 {
-		font-size: clamp(2.25rem, 6vw, 3rem);
+		font-size: clamp(2rem, 6vw, 2.75rem);
 		margin: 0;
+		color: var(--text);
 	}
 
 	h2 {
-		font-size: clamp(1.1rem, 3vw, 1.4rem);
+		font-size: clamp(1.05rem, 3vw, 1.3rem);
 		font-weight: 500;
 		color: var(--accent);
-		margin: 0.25rem 0 1rem;
+		margin: 0;
+	}
+
+	.cursor {
+		animation: blink 1s step-end infinite;
+	}
+
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
 	}
 
 	.summary {
-		max-width: 60ch;
-		color: var(--text-muted);
+		max-width: 65ch;
+		color: var(--text);
+		margin: 0;
+	}
+
+	.location {
+		margin-bottom: 0;
 	}
 
 	.links {
 		display: flex;
 		gap: 1rem;
-		margin-top: 1.5rem;
+		margin-top: 1.75rem;
 		flex-wrap: wrap;
 	}
 
-	.links a {
+	.btn {
 		text-decoration: none;
 		border: 1px solid var(--border);
-		padding: 0.6rem 1.1rem;
+		padding: 0.65rem 1.2rem;
 		border-radius: 6px;
 		font-weight: 500;
+		font-family: var(--mono);
+		font-size: 0.9rem;
+		color: var(--text);
 	}
 
-	.links a:first-child {
+	.btn.primary {
 		background: var(--accent);
-		color: white;
+		color: #0a0e14;
 		border-color: var(--accent);
+		font-weight: 600;
+	}
+
+	.btn:not(.primary):hover {
+		border-color: var(--accent);
+		color: var(--accent);
 	}
 </style>

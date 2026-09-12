@@ -1,41 +1,73 @@
 ---
-const email = 'you@example.com';
+const email = 'sudhirkiitb@gmail.com';
 const github = 'https://github.com/imSudhirK';
-const linkedin = 'https://www.linkedin.com/in/replace-with-your-linkedin';
+const linkedin = 'https://linkedin.com/SudhirKumar';
+
+const links = [
+	{ label: 'email', value: email, href: `mailto:${email}` },
+	{ label: 'github', value: 'github.com/imSudhirK', href: github },
+	{ label: 'linkedin', value: 'linkedin.com/SudhirKumar', href: linkedin },
+];
 ---
 
 <section id="contact" class="contact">
-	<h2>Contact</h2>
-	<p>
-		Feel free to reach out. Edit these links in src/components/Contact.astro.
+	<h2 class="section-heading"><span class="index">05.</span> Contact</h2>
+	<p class="intro">
+		<span class="prompt">$</span> echo "Open to new opportunities — reach out below."
 	</p>
-	<div class="links">
-		<a href={`mailto:${email}`}>Email</a>
-		<a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
-		<a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-	</div>
+	<ul class="contact-list">
+		{
+			links.map((link) => (
+				<li>
+					<span class="label">{link.label}:</span>
+					<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+						{link.value}
+					</a>
+				</li>
+			))
+		}
+	</ul>
 </section>
 
 <style>
 	.contact {
-		padding-bottom: 5rem;
+		padding-bottom: 6rem;
 	}
 
-	p {
+	.intro {
+		font-family: var(--mono);
 		color: var(--text-muted);
+		font-size: 0.9rem;
 	}
 
-	.links {
+	.prompt {
+		color: var(--accent);
+		margin-right: 0.5rem;
+	}
+
+	.contact-list {
+		list-style: none;
+		padding: 0;
+		margin: 1.5rem 0 0;
 		display: flex;
-		gap: 1.5rem;
-		margin-top: 1rem;
-		flex-wrap: wrap;
+		flex-direction: column;
+		gap: 0.75rem;
+		font-family: var(--mono);
+		font-size: 0.95rem;
 	}
 
-	.links a {
-		font-weight: 500;
+	.label {
+		color: var(--text-muted);
+		display: inline-block;
+		min-width: 5.5rem;
+	}
+
+	.contact-list a {
 		text-decoration: none;
-		border-bottom: 1px solid var(--accent);
-		padding-bottom: 2px;
+		border-bottom: 1px solid transparent;
+	}
+
+	.contact-list a:hover {
+		border-bottom-color: var(--accent);
 	}
 </style>
