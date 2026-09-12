@@ -8,9 +8,16 @@ interface Project {
 
 const projects: Project[] = [
 	{
-		name: 'Loan Origination System (LOS)',
+		name: 'Client-Side Caching Service',
 		description:
-			'RM panel built with Node.js and Next.js — role-based workflows, server-driven rendering, and Redis-backed caching over PostgreSQL and MongoDB.',
+			'Caching and computation layer using Service Workers and IndexedDB to move heavy computation to the client.',
+		impact: 'Reduced system latency by 80%',
+		stack: ['Node.js', 'Service Workers', 'IndexedDB', 'AWS S3'],
+	},
+	{
+		name: 'Loan Origination System',
+		description:
+			'RM panel built with Node.js and Next.js — role-based workflows, server-driven rendering, and Redis-backed caching',
 		impact: 'Boosted RM efficiency by 30%',
 		stack: ['Next.js', 'Node.js', 'Redis', 'PostgreSQL', 'MongoDB'],
 	},
@@ -19,22 +26,9 @@ const projects: Project[] = [
 		description:
 			'Real-time analytics on bureau data, balance sheets, and GSTR-3B filings, streamed through Kafka to drive automated credit decisions.',
 		impact: 'Reduced underwriting time by 20–30%',
-		stack: ['Kafka', 'Node.js', 'Python'],
+		stack: ['Node.js', 'Kafka',  'Gemini'],
 	},
-	{
-		name: 'Document Processing Automation',
-		description:
-			'Microservice for OCR-driven agreement generation, document ingestion, and Excel-based financial report automation.',
-		impact: 'Cut processing time 40%, saved 100+ hrs/month',
-		stack: ['Node.js', 'OCR', 'AWS'],
-	},
-	{
-		name: 'Client-Side Caching Service',
-		description:
-			'Caching and computation layer using Service Workers and IndexedDB to move heavy computation to the client.',
-		impact: 'Reduced system latency by 80%',
-		stack: ['Service Workers', 'IndexedDB', 'AWS'],
-	},
+	
 ];
 ---
 
