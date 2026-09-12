@@ -1,0 +1,31 @@
+---
+const paragraphs = [
+	'Replace this paragraph in src/components/About.astro with a couple of sentences about your background, what you work on, and what you care about as a developer.',
+	'Add a second paragraph here if you want to mention specific interests, domains, or what you are currently learning.',
+];
+---
+
+<section id="about" class="about">
+	<h2>About</h2>
+	{paragraphs.map((p) => <p>{p}</p>)}
+</section>
+
+<style>
+	.about {
+		background: var(--bg-alt);
+		max-width: none;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+	}
+
+	.about > * {
+		max-width: var(--max-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	p {
+		color: var(--text-muted);
+		max-width: 65ch;
+	}
+</style>

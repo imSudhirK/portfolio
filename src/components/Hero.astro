@@ -1,0 +1,70 @@
+---
+const name = 'Sudhir Kumar';
+const tagline = 'Software Developer';
+const summary =
+	'I build web applications and enjoy working across the stack. Edit this line in src/components/Hero.astro with your own intro.';
+---
+
+<section id="hero" class="hero">
+	<p class="eyebrow">Hi, I'm</p>
+	<h1>{name}</h1>
+	<h2>{tagline}</h2>
+	<p class="summary">{summary}</p>
+	<div class="links">
+		<a href="#projects">View Projects</a>
+		<a href="#contact">Contact</a>
+	</div>
+</section>
+
+<style>
+	.hero {
+		padding-top: 5rem;
+		padding-bottom: 3rem;
+	}
+
+	.eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-size: 0.85rem;
+		color: var(--text-muted);
+		margin: 0 0 0.5rem;
+	}
+
+	h1 {
+		font-size: clamp(2.25rem, 6vw, 3rem);
+		margin: 0;
+	}
+
+	h2 {
+		font-size: clamp(1.1rem, 3vw, 1.4rem);
+		font-weight: 500;
+		color: var(--accent);
+		margin: 0.25rem 0 1rem;
+	}
+
+	.summary {
+		max-width: 60ch;
+		color: var(--text-muted);
+	}
+
+	.links {
+		display: flex;
+		gap: 1rem;
+		margin-top: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	.links a {
+		text-decoration: none;
+		border: 1px solid var(--border);
+		padding: 0.6rem 1.1rem;
+		border-radius: 6px;
+		font-weight: 500;
+	}
+
+	.links a:first-child {
+		background: var(--accent);
+		color: white;
+		border-color: var(--accent);
+	}
+</style>

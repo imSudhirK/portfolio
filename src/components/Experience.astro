@@ -1,0 +1,97 @@
+---
+interface Role {
+	title: string;
+	company: string;
+	period: string;
+	description: string;
+}
+
+const roles: Role[] = [
+	{
+		title: 'Job Title',
+		company: 'Company Name',
+		period: '20XX — Present',
+		description: 'One or two lines about your responsibilities and impact in this role.',
+	},
+	{
+		title: 'Previous Job Title',
+		company: 'Previous Company',
+		period: '20XX — 20XX',
+		description: 'One or two lines about your responsibilities and impact in this role.',
+	},
+];
+---
+
+<section id="experience" class="experience">
+	<h2>Experience</h2>
+	<p class="hint">Edit this list in src/components/Experience.astro.</p>
+	<div class="timeline">
+		{
+			roles.map((role) => (
+				<div class="role">
+					<div class="role-header">
+						<h3>{role.title}</h3>
+						<span class="period">{role.period}</span>
+					</div>
+					<p class="company">{role.company}</p>
+					<p>{role.description}</p>
+				</div>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.experience {
+		background: var(--bg-alt);
+		max-width: none;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+	}
+
+	.experience > * {
+		max-width: var(--max-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hint {
+		color: var(--text-muted);
+		font-size: 0.9rem;
+	}
+
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 1.75rem;
+		margin-top: 1.5rem;
+	}
+
+	.role-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.role-header h3 {
+		margin: 0;
+	}
+
+	.period {
+		color: var(--text-muted);
+		font-size: 0.85rem;
+	}
+
+	.company {
+		color: var(--accent);
+		font-weight: 500;
+		margin: 0.15rem 0 0.5rem;
+	}
+
+	.role p:last-child {
+		margin: 0;
+		color: var(--text-muted);
+	}
+</style>

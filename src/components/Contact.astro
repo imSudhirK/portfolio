@@ -1,0 +1,41 @@
+---
+const email = 'you@example.com';
+const github = 'https://github.com/imSudhirK';
+const linkedin = 'https://www.linkedin.com/in/replace-with-your-linkedin';
+---
+
+<section id="contact" class="contact">
+	<h2>Contact</h2>
+	<p>
+		Feel free to reach out. Edit these links in src/components/Contact.astro.
+	</p>
+	<div class="links">
+		<a href={`mailto:${email}`}>Email</a>
+		<a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
+		<a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+	</div>
+</section>
+
+<style>
+	.contact {
+		padding-bottom: 5rem;
+	}
+
+	p {
+		color: var(--text-muted);
+	}
+
+	.links {
+		display: flex;
+		gap: 1.5rem;
+		margin-top: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.links a {
+		font-weight: 500;
+		text-decoration: none;
+		border-bottom: 1px solid var(--accent);
+		padding-bottom: 2px;
+	}
+</style>

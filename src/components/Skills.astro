@@ -1,0 +1,43 @@
+---
+const skills = [
+	'JavaScript',
+	'TypeScript',
+	'React',
+	'Node.js',
+	'HTML & CSS',
+	'Git',
+	'SQL',
+	'Astro',
+];
+---
+
+<section id="skills" class="skills">
+	<h2>Skills</h2>
+	<p class="hint">Edit this list in src/components/Skills.astro.</p>
+	<ul>
+		{skills.map((skill) => <li>{skill}</li>)}
+	</ul>
+</section>
+
+<style>
+	.hint {
+		color: var(--text-muted);
+		font-size: 0.9rem;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+	}
+
+	li {
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		padding: 0.4rem 0.9rem;
+		font-size: 0.9rem;
+	}
+</style>
